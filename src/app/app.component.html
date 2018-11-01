@@ -1,0 +1,69 @@
+<div id="main-container" style="text-align:center">
+  <h1>
+    <a href="https://codingblast.com/asp-net-core-signalr-simple-chat/" target="_new">
+      ASP.NET Core SignalR Chat with Angular
+    </a>
+  </h1>
+
+  <div class="container">
+    <h2>Hello!</h2>
+    <form (ngSubmit)="addUserToGroup()" [formGroup]="messagesForm">
+      <div>
+        <label for="groupName">Group Name</label>
+        <input type="text" id="groupName" formControlName="groupName" required>
+      </div>
+      <div>
+        <label for="userName">User Name</label>
+        <input type="text" id="userName" formControlName="userName" required>
+      </div>
+      <div>
+        <label for="selection">Selection</label>
+        <input type="text" id="selection" formControlName="selection" required>
+      </div>
+      <button type="submit" id="sendmessage">
+        Add User To Group
+      </button>
+    </form>
+  </div>
+  <div>
+    <button type="button" (click)="getUsersByGroup()">Get Users By Group</button>
+  </div>
+  <div>
+    <button type="button" (click)="setUserSelection()">Set User Selection</button>
+  </div>
+  <div>
+    <button type="button" (click)="clearAllSelectionsForGroup()">Clear All Selections For Group</button>
+  </div>
+  <div>
+    <button type="button" (click)="getAllActiveGroupData()">Get All Active Group Data</button>
+  </div>
+
+  <div class="container" *ngIf="messages.length > 0">
+    <div *ngFor="let message of messages">
+      <span>{{message}}</span>
+    </div>
+  </div>
+
+  <br/>
+  <hr/>
+  <h1>Add User To Group Response</h1>
+  {{addUserToGroupResponse | json}}
+  <br/>
+  <hr/>
+  <h1>Get Users By Group Response</h1>
+  {{getUsersByGroupResponse | json}}
+  <br/>
+  <hr/>
+  <h1>Get user Selection Response</h1>
+  {{getUserSelectionResponse | json}}
+  <br/>
+  <hr/>
+  <h1>Clear All Selections For Group Response</h1>
+  {{clearAllSelectionsForGroupResponse | json}}
+  <br/>
+  <hr/>
+  <h1>Get All Active Group Data Response</h1>
+  {{getAllActiveGroupDataResponse | json}}
+  <br/>
+  <hr/>
+</div>
